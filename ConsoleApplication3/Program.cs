@@ -8,7 +8,11 @@ namespace ConsoleApplication3
 
     // Her starter monkey class
 {
-    public class Monkey {
+    public abstract class AbstractMonkey { 
+    //Abstract monkey code here. An abstract class can not be instantiated and is used to implement polymorphism.
+    }
+
+    public class Monkey { // Non Abstract class. A class is only abstract when declared as abstract.
         public int age;
         public int height;
         public int weight;
@@ -31,11 +35,12 @@ namespace ConsoleApplication3
 
     // Her starter ChimpMonkey
 
-    public class ChimpMonkey : Monkey {
-
-        public ChimpMonkey() { }
-        public ChimpMonkey(int age, int height, int weight, string name) : base(age, height, weight) {
+    public class Human : Monkey { // Inheritance
+        public Monkey friend; // Composition
+        public Human() { }
+        public Human(int age, int height, int weight, string name) : base(age, height, weight) {
             this.name = name;
+
         }
         public string name;
         public void Write()
@@ -49,7 +54,7 @@ namespace ConsoleApplication3
         static void Main(string[] args)
         {
             Monkey M1 = new Monkey(2, 300, 300);
-            ChimpMonkey M2 = new ChimpMonkey(20, 15, 56, "Hans");
+            Human M2 = new Human(20, 15, 56, "Hans");
             M1.Write();
             M2.Write();
            // stopper vindue 
